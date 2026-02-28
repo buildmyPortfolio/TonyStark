@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tony Stark – Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="scroll-progress" class="scroll-progress"></div>
+  <div id="cursor-glow"></div>
+
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">TS<span class="dot">.</span></span>
+      <ul class="nav-links">
+        <li><a href="#about" data-lang="nav-about">About</a></li>
+        <li><a href="#experience" data-lang="nav-experience">Experience</a></li>
+        <li><a href="#education" data-lang="nav-education">Education</a></li>
+        <li><a href="#skills" data-lang="nav-skills">Skills</a></li>
+        <li><a href="#certificates" data-lang="nav-certificates">Certs</a></li>
+        <li><a href="#portfolio" data-lang="nav-portfolio">Portfolio</a></li>
+        <li><a href="#testimonials" data-lang="nav-testimonials">Reviews</a></li>
+        <li><a href="#blog" data-lang="nav-blog">Articles</a></li>
+        <li><a href="#contact" data-lang="nav-contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="lang-btn" id="langBtn" aria-label="Switch language">🌐 ES</button>
+        <a href="Sample%20Blank%20Resume.png" download="Tony_Stark_Resume" class="btn-resume" aria-label="Download Resume">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-lang="download-cv">Download CV</span>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" data-lang="nav-about">About</a>
+      <a href="#experience" data-lang="nav-experience">Experience</a>
+      <a href="#education" data-lang="nav-education">Education</a>
+      <a href="#skills" data-lang="nav-skills">Skills</a>
+      <a href="#certificates" data-lang="nav-certificates">Certificates</a>
+      <a href="#portfolio" data-lang="nav-portfolio">Portfolio</a>
+      <a href="#testimonials" data-lang="nav-testimonials">Testimonials</a>
+      <a href="#blog" data-lang="nav-blog">Articles</a>
+      <a href="#contact" data-lang="nav-contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <header id="hero">
+    <div class="hero-bg">
+      <div class="aurora-orb orb-1"></div>
+      <div class="aurora-orb orb-2"></div>
+      <div class="aurora-orb orb-3"></div>
+      <canvas id="dot-canvas"></canvas>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text reveal">
+        <p class="hero-greeting" data-lang="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Tony Stark</h1>
+        <h2 class="hero-title"><span id="typed-role"></span><span class="cursor-blink">|</span></h2>
+        <p class="hero-tagline" data-lang="hero-tagline">
+          Innovative leader with 20+ years driving high-tech transformation,
+          clean-energy breakthroughs, and world-class engineering teams.
+        </p>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn btn-primary mag-btn"><span data-lang="cta-work">View My Work</span></a>
+          <a href="#contact" class="btn btn-outline mag-btn"><span data-lang="cta-contact">Get In Touch</span></a>
+        </div>
+        <div class="hero-social">
+          <a href="https://www.linkedin.com/in/tony-stark" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.854 0-2.137 1.446-2.137 2.94v5.666H9.984V9h3.097v1.562h.044c.431-.817 1.485-1.678 3.057-1.678 3.268 0 3.872 2.15 3.872 4.945v6.623zM5.337 7.433a1.797 1.797 0 1 1 0-3.593 1.797 1.797 0 0 1 0 3.593zm1.601 13.019H3.733V9h3.205v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.twitter.com/tony-stark" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo reveal delay-2">
+        <div class="photo-ring">
+            <img src="Sample%20Profile.jpg" alt="Tony Stark" loading="eager" />
+        </div>
+        <div class="hero-badge">
+          <span class="badge-num">20<sup>+</sup></span>
+          <span class="badge-label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats reveal delay-3">
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Projects Delivered</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">Certifications</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Industry Awards</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Patents Filed</span></div>
+    </div>
+  </header>
+
+  <!-- ══════════════ ABOUT ══════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Who I Am</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm a visionary CEO and engineer with a passion for pushing the boundaries of technology.
+            Over my career I have led <strong>Stark Industries</strong> from a traditional defence contractor
+            to a global clean-energy powerhouse, proving that innovation and responsibility can coexist.
+          </p>
+          <p>
+            With a Master's degree in Electrical Engineering from MIT and a portfolio of
+            groundbreaking patents, I combine deep technical expertise with strategic
+            business acumen to build products and teams that change the world.
+          </p>
+          <p>
+            When I'm not in the lab or boardroom you'll find me inventing new gadgets,
+            flying experimental aircraft, or championing philanthropic causes.
+          </p>
+          <div class="about-info-grid">
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <span class="info-value">+1-202-555-0173</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Email</span>
+              <span class="info-value">tony.stark@starkindustries.com</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <span class="info-value">Malibu, California, USA</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Availability</span>
+              <span class="info-value">Open to opportunities</span>
+            </div>
+          </div>
+          <div class="avail-badge">
+            <span class="avail-pulse"></span>
+            <span data-lang="avail-text">Available for new opportunities</span>
+          </div>
+        </div>
+        <div class="about-highlights reveal delay-2">
+          <div class="highlight-card">
+            <div class="highlight-icon">🚀</div>
+            <h4>Innovation</h4>
+            <p>Pioneered clean-energy arc reactor technology adopted across three continents.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">📊</div>
+            <h4>Leadership</h4>
+            <p>Scaled Stark Industries from 800 to 12,000+ employees over 15 years.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🌍</div>
+            <h4>Impact</h4>
+            <p>Deployed sustainable energy solutions in 40+ countries via the Stark Foundation.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🏆</div>
+            <h4>Recognition</h4>
+            <p>Fortune 500 CEO of the Year and multiple IEEE engineering excellence awards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EXPERIENCE ══════════════ -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Career Journey</span>
+        <h2 class="section-title">Work Experience</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jan 1996 – Present</div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>CEO &amp; Chief Innovation Officer</h3>
+              <span class="timeline-company">Stark Industries — Los Angeles, CA</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Led the company to become a global leader in clean energy and advanced defence technology.</li>
+              <li>Transitioned company focus from weaponry to sustainable energy solutions, increasing revenue by 340%.</li>
+              <li>Launched the Stark Resilience Program, funding STEM education for 20,000+ students worldwide.</li>
+              <li>Delivered 50+ enterprise-grade technology products under budget and ahead of schedule.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Strategic Leadership</span><span>P&amp;L Management</span><span>Product Innovation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal delay-1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jan 1990 – Jan 1996</div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <h3>Lead Inventor &amp; Head of R&amp;D</h3>
+              <span class="timeline-company">Stark Industries — Los Angeles, CA</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed cutting-edge propulsion and weaponry systems generating $2B+ in government contracts.</li>
+              <li>Innovated new designs for sustainable energy sources that formed the basis of the arc reactor.</li>
+              <li>Built and mentored a 200-person engineering team, improving project delivery speed by 60%.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>R&amp;D</span><span>Engineering Management</span><span>Prototyping</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EDUCATION ══════════════ -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-body">
+            <span class="edu-year">1990</span>
+            <h3>Master's Degree in Electrical Engineering</h3>
+            <span class="edu-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA</span>
+            <ul class="edu-points">
+              <li>Graduated <em>summa cum laude</em> — top 1% of cohort.</li>
+              <li>Published three papers on advanced robotics and artificial intelligence.</li>
+              <li>Thesis: <em>Miniaturised Arc-Based Energy Systems for Portable Applications.</em></li>
+            </ul>
+          </div>
+        </div>
+        <div class="edu-card reveal delay-1">
+          <div class="edu-icon">📘</div>
+          <div class="edu-body">
+            <span class="edu-year">1986</span>
+            <h3>Bachelor's Degree in Physics &amp; Computer Science</h3>
+            <span class="edu-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA</span>
+            <ul class="edu-points">
+              <li>Dual major completed in three years; Dean's List every semester.</li>
+              <li>Founded MIT Robotics Club; grew membership to 150 students.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SKILLS ══════════════ -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I Bring</span>
+        <h2 class="section-title">Skills &amp; Expertise</h2>
+      </div>
+      <div class="skills-wrapper">
+        <div class="skill-group reveal">
+          <h4 class="skill-group-title">Leadership &amp; Strategy</h4>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Executive Leadership</span><span>98%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="98"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Business Strategy</span><span>95%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="95"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Project Management (PMP)</span><span>97%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="97"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Change Management</span><span>90%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal delay-1">
+          <h4 class="skill-group-title">Engineering &amp; Technical</h4>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Electrical Engineering</span><span>99%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="99"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Robotics &amp; AI</span><span>96%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="96"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Six Sigma (Black Belt)</span><span>94%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="94"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-label"><span>Systems Architecture</span><span>92%</span></div>
+            <div class="skill-track"><div class="skill-fill" data-width="92"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal delay-2">
+          <h4 class="skill-group-title">Core Competencies</h4>
+          <div class="pill-grid">
+            <span class="pill">Invention</span>
+            <span class="pill">Clean Energy</span>
+            <span class="pill">Team Building</span>
+            <span class="pill">Product Design</span>
+            <span class="pill">Process Improvement</span>
+            <span class="pill">M&amp;A Strategy</span>
+            <span class="pill">Stakeholder Mgmt</span>
+            <span class="pill">Public Speaking</span>
+            <span class="pill">Agile / Scrum</span>
+            <span class="pill">Data Analytics</span>
+            <span class="pill">Lean Manufacturing</span>
+            <span class="pill">IP &amp; Patents</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CERTIFICATES ══════════════ -->
+  <section id="certificates" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Credentials</span>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+      <div class="cert-grid">
+
+        <div class="cert-card reveal" data-img="Professional_PMP_Certificate.png">
+          <div class="cert-preview">
+            <img src="Professional_PMP_Certificate.png" alt="PMP Certificate" loading="lazy" />
+            <div class="cert-overlay">
+              <button class="cert-view-btn" aria-label="View certificate">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M9 7H3v14h14v-6"/></svg>
+                View Certificate
+              </button>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-badge pmp">PMP</div>
+            <h3>Project Management Professional</h3>
+            <p class="cert-issuer">Project Management Institute (PMI)</p>
+            <p class="cert-desc">
+              Globally recognised credential validating expertise in leading projects,
+              managing teams, and delivering results on time and within budget across
+              diverse industries and methodologies (Waterfall, Agile, Hybrid).
+            </p>
+            <span class="cert-year">2005</span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-1" data-img="Certificate Six Sigma Black Belt.png">
+          <div class="cert-preview">
+            <img src="Certificate Six Sigma Black Belt.png" alt="Six Sigma Black Belt Certificate" loading="lazy" />
+            <div class="cert-overlay">
+              <button class="cert-view-btn" aria-label="View certificate">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M9 7H3v14h14v-6"/></svg>
+                View Certificate
+              </button>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-badge bb">BB</div>
+            <h3>Six Sigma Black Belt</h3>
+            <p class="cert-issuer">American Society for Quality (ASQ)</p>
+            <p class="cert-desc">
+              Advanced certification demonstrating mastery of the DMAIC framework,
+              statistical analysis, and lean process optimisation. Applied to eliminate
+              manufacturing defects and reduce operational waste by over 35%.
+            </p>
+            <span class="cert-year">2008</span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-2" data-img="Certificate Six Sigma Green Belt.jpg">
+          <div class="cert-preview">
+            <img src="Certificate Six Sigma Green Belt.jpg" alt="Six Sigma Green Belt Certificate" loading="lazy" />
+            <div class="cert-overlay">
+              <button class="cert-view-btn" aria-label="View certificate">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M9 7H3v14h14v-6"/></svg>
+                View Certificate
+              </button>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-badge gb">GB</div>
+            <h3>Six Sigma Green Belt</h3>
+            <p class="cert-issuer">American Society for Quality (ASQ)</p>
+            <p class="cert-desc">
+              Intermediate-level credential covering data-driven quality management and
+              process improvement. Earned while leading a cross-functional team that
+              cut production cycle times by 22% across Stark Industries' main facilities.
+            </p>
+            <span class="cert-year">2003</span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-1" data-img="Sample Certificate.jpg">
+          <div class="cert-preview">
+            <img src="Sample Certificate.jpg" alt="Certificate of Excellence" loading="lazy" />
+            <div class="cert-overlay">
+              <button class="cert-view-btn" aria-label="View certificate">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M9 7H3v14h14v-6"/></svg>
+                View Certificate
+              </button>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-badge ex">EX</div>
+            <h3>Certificate of Excellence – Advanced Engineering</h3>
+            <p class="cert-issuer">IEEE Institute of Electrical and Electronics Engineers</p>
+            <p class="cert-desc">
+              Awarded for outstanding contributions to the field of advanced engineering
+              and sustainable energy research. Recognised for pioneering miniaturised
+              arc reactor technology and its real-world commercial application.
+            </p>
+            <span class="cert-year">2010</span>
+          </div>
+        </div>
+
+        <div class="cert-card reveal delay-2" data-img="Blank Certificate.jpg">
+          <div class="cert-preview">
+            <img src="Blank Certificate.jpg" alt="Leadership Excellence Certificate" loading="lazy" />
+            <div class="cert-overlay">
+              <button class="cert-view-btn" aria-label="View certificate">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M9 7H3v14h14v-6"/></svg>
+                View Certificate
+              </button>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-badge ldr">LDR</div>
+            <h3>Executive Leadership &amp; Innovation</h3>
+            <p class="cert-issuer">Harvard Business School – Executive Education</p>
+            <p class="cert-desc">
+              Completed an intensive executive education programme covering transformational
+              leadership, corporate innovation strategy, and organisational change management,
+              equipping leaders to drive sustained growth in competitive global markets.
+            </p>
+            <span class="cert-year">2002</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PORTFOLIO ══════════════ -->
+  <section id="portfolio" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Featured Work</span>
+        <h2 class="section-title">Portfolio Projects</h2>
+      </div>
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="dashboard">Dashboards</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="webapp">Web Apps</button>
+      </div>
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card reveal" data-category="dashboard" data-img="Sample portfolio - Dashboard.webp">
+          <div class="portfolio-preview">
+            <img src="Sample portfolio - Dashboard.webp" alt="Analytics Dashboard" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <h4>Executive Analytics Dashboard</h4>
+                <button class="port-view-btn" aria-label="View project">View Project ↗</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span>Data Visualisation</span><span>Business Intelligence</span>
+            </div>
+            <h3>Executive Analytics Dashboard</h3>
+            <p>
+              A real-time business intelligence dashboard aggregating KPIs from
+              across all Stark Industries divisions. Features interactive drill-down
+              charts, predictive forecasting, and automated executive reporting,
+              reducing decision-making time by 40%.
+            </p>
+            <a href="#" class="port-link">Explore →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal delay-1" data-category="dashboard" data-img="Sample portfolio - Dashboard2.webp">
+          <div class="portfolio-preview">
+            <img src="Sample portfolio - Dashboard2.webp" alt="Energy Monitoring Dashboard" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <h4>Energy Monitoring Dashboard</h4>
+                <button class="port-view-btn" aria-label="View project">View Project ↗</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span>IoT Integration</span><span>Clean Energy</span>
+            </div>
+            <h3>Energy Monitoring Dashboard</h3>
+            <p>
+              An IoT-connected monitoring platform that tracks real-time energy output,
+              consumption, and efficiency metrics across 14 arc reactor installations
+              worldwide. Integrates anomaly detection algorithms to preemptively flag
+              maintenance needs, achieving 99.7% uptime.
+            </p>
+            <a href="#" class="port-link">Explore →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal delay-2" data-category="mobile" data-img="Sample portfolio - Mobile App.webp">
+          <div class="portfolio-preview">
+            <img src="Sample portfolio - Mobile App.webp" alt="JARVIS Mobile App" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <h4>JARVIS Mobile Companion App</h4>
+                <button class="port-view-btn" aria-label="View project">View Project ↗</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span>Mobile App</span><span>AI Assistant</span>
+            </div>
+            <h3>JARVIS Mobile Companion App</h3>
+            <p>
+              An AI-powered mobile application extending JARVIS capabilities to
+              smartphones. Provides voice-activated control of smart environments,
+              real-time threat analysis, and secure encrypted communications.
+              Rated 4.9/5 across 200,000+ enterprise users.
+            </p>
+            <a href="#" class="port-link">Explore →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal" data-category="webapp" data-img="Sample portfolio - Task Management.webp">
+          <div class="portfolio-preview">
+            <img src="Sample portfolio - Task Management.webp" alt="Project Task Management" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <h4>Stark Task Management Suite</h4>
+                <button class="port-view-btn" aria-label="View project">View Project ↗</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span>Productivity</span><span>Team Collaboration</span>
+            </div>
+            <h3>Stark Task Management Suite</h3>
+            <p>
+              An enterprise-grade project management platform built to coordinate
+              multi-disciplinary R&amp;D teams across 8 time zones. Features sprint
+              planning, Gantt timelines, automated status reporting, and seamless
+              integration with existing ERP and CRM systems.
+            </p>
+            <a href="#" class="port-link">Explore →</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal delay-1" data-category="webapp" data-img="Sample portfolio - Webapp.webp">
+          <div class="portfolio-preview">
+            <img src="Sample portfolio - Webapp.webp" alt="Stark Industries Web App" loading="lazy" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-content">
+                <h4>Stark Industries Partner Portal</h4>
+                <button class="port-view-btn" aria-label="View project">View Project ↗</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span>Web Application</span><span>Partner Management</span>
+            </div>
+            <h3>Stark Industries Partner Portal</h3>
+            <p>
+              A secure B2B web application enabling global supply-chain partners
+              to submit proposals, track contract milestones, and access technical
+              documentation. Onboarded 300+ partners in the first quarter,
+              cutting procurement processing time by 55%.
+            </p>
+            <a href="#" class="port-link">Explore →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ HOBBIES & REFERENCE ══════════════ -->
+  <section id="extras" class="section">
+    <div class="container extras-grid">
+      <div class="hobbies-block reveal">
+        <div class="section-header" style="margin-bottom:2rem">
+          <span class="section-tag">Personal Interests</span>
+          <h2 class="section-title">Hobbies</h2>
+        </div>
+        <div class="hobbies-list">
+          <div class="hobby-item"><span>✈️</span><div><h4>Flying</h4><p>Licensed pilot — 1,200+ flight hours in fixed-wing and experimental aircraft.</p></div></div>
+          <div class="hobby-item"><span>🔧</span><div><h4>Inventing</h4><p>Maintains a private lab where new concepts are prototyped and tested weekly.</p></div></div>
+          <div class="hobby-item"><span>🤝</span><div><h4>Philanthropy</h4><p>Chairs the Stark Foundation, funding clean-energy access in underserved regions.</p></div></div>
+          <div class="hobby-item"><span>🏎️</span><div><h4>Motorsports</h4><p>Amateur racing enthusiast and collector of classic performance vehicles.</p></div></div>
+        </div>
+      </div>
+      <div class="reference-block reveal delay-2">
+        <div class="section-header" style="margin-bottom:2rem">
+          <span class="section-tag">Endorsement</span>
+          <h2 class="section-title">Reference</h2>
+        </div>
+        <div class="ref-card">
+          <div class="ref-avatar">PP</div>
+          <div class="ref-info">
+            <h3>Pepper Potts</h3>
+            <span class="ref-title">President &amp; COO – Stark Industries</span>
+            <p class="ref-quote">
+              "Tony is not merely an exceptional engineer — he is a transformational
+              leader who inspires every team he touches. His ability to balance
+              visionary thinking with pragmatic execution is unmatched."
+            </p>
+            <div class="ref-contact">
+              <a href="tel:+12025550174">📞 +1-202-555-0174</a>
+              <a href="mailto:pepper.potts@starkindustries.com">✉️ pepper.potts@starkindustries.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ TESTIMONIALS ══════════════ -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Kind Words</span>
+        <h2 class="section-title">What People Say</h2>
+      </div>
+      <div class="testimonial-track-wrapper reveal">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card">
+            <div class="test-quote">❝</div>
+            <p>"Working with Tony transformed our entire R&amp;D division. His ability to see five years into the future while solving today's problems is unlike anything I've witnessed in 30 years of tech."</p>
+            <div class="test-author"><div class="test-avatar">NF</div><div><strong>Nick Fury</strong><span>Director — S.H.I.E.L.D.</span></div></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="test-quote">❝</div>
+            <p>"Tony's arc reactor project saved our energy division $200M annually. Beyond the numbers, his mentorship of young engineers has had a lasting cultural impact on our organisation."</p>
+            <div class="test-author"><div class="test-avatar">JR</div><div><strong>James Rhodes</strong><span>VP Engineering — US Dept. of Defense</span></div></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="test-quote">❝</div>
+            <p>"Tony redefined what we thought was possible in sustainable energy. His team delivered a solution in 6 months that our internal teams had been attempting for over three years."</p>
+            <div class="test-author"><div class="test-avatar">HH</div><div><strong>Happy Hogan</strong><span>Chief Security Officer — Stark Industries</span></div></div>
+          </div>
+          <div class="testimonial-card">
+            <div class="test-quote">❝</div>
+            <p>"Collaborating with Tony on the clean-energy initiative was career-defining. He has a rare gift for making extraordinary ideas feel inevitable — and then making them real."</p>
+            <div class="test-author"><div class="test-avatar">BC</div><div><strong>Bruce Banner</strong><span>Head of Research — Avengers Initiative</span></div></div>
+          </div>
+        </div>
+        <div class="testimonial-nav">
+          <button class="test-prev" id="testPrev" aria-label="Previous">&#8249;</button>
+          <div class="test-dots" id="testDots"></div>
+          <button class="test-next" id="testNext" aria-label="Next">&#8250;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ BLOG ══════════════ -->
+  <section id="blog" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Thought Leadership</span>
+        <h2 class="section-title">Articles &amp; Insights</h2>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card reveal">
+          <div class="blog-img-wrap"><div class="blog-emoji">⚡</div></div>
+          <div class="blog-body">
+            <span class="blog-tag">Clean Energy</span>
+            <h3>The Future of Arc Reactor Technology in Commercial Power Grids</h3>
+            <p>Exploring how miniaturised fusion-based reactors could replace fossil-fuel infrastructure across major cities within the next decade.</p>
+            <div class="blog-meta"><span>Jan 15, 2026</span><span>8 min read</span></div>
+            <a href="#" class="port-link">Read Article →</a>
+          </div>
+        </article>
+        <article class="blog-card reveal delay-1">
+          <div class="blog-img-wrap"><div class="blog-emoji">🤖</div></div>
+          <div class="blog-body">
+            <span class="blog-tag">AI &amp; Robotics</span>
+            <h3>Why Human-AI Collaboration Will Define the Next Industrial Revolution</h3>
+            <p>My perspective on designing systems where AI amplifies human creativity — lessons from 15 years of AI-integrated engineering at Stark Industries.</p>
+            <div class="blog-meta"><span>Dec 3, 2025</span><span>6 min read</span></div>
+            <a href="#" class="port-link">Read Article →</a>
+          </div>
+        </article>
+        <article class="blog-card reveal delay-2">
+          <div class="blog-img-wrap"><div class="blog-emoji">🌍</div></div>
+          <div class="blog-body">
+            <span class="blog-tag">Leadership</span>
+            <h3>Leading Through Disruption: What Building Iron Man Taught Me About Change Management</h3>
+            <p>Principles of iterative prototyping, rapid failure, and team resilience — why every CEO should think like an engineer.</p>
+            <div class="blog-meta"><span>Nov 20, 2025</span><span>10 min read</span></div>
+            <a href="#" class="port-link">Read Article →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ CONTACT ══════════════ -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p>Whether you want to discuss a collaboration, partnership,
+          or just say hello — I'm always open to a good conversation.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div><strong>Phone</strong><br/>+1-202-555-0173</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div><strong>Email</strong><br/>tony.stark@starkindustries.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div><strong>Location</strong><br/>Malibu, California 90265, USA</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">💼</div>
+              <div><strong>LinkedIn</strong><br/><a href="https://www.linkedin.com/in/tony-stark" target="_blank" rel="noopener">linkedin.com/in/tony-stark</a></div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal delay-1" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Partnership Inquiry" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <div id="form-success" class="form-success" hidden>✅ Your message has been sent! I'll get back to you soon.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <span class="nav-logo">TS<span class="dot">.</span></span>
+      <p>© 2026 Tony Stark. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/tony-stark" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.twitter.com/tony-stark" target="_blank" rel="noopener">Twitter</a>
+        <button class="footer-print-btn" onclick="window.print()" aria-label="Print resume">🖨️ Print</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════ CASE STUDY MODAL ══════════════ -->
+  <div id="caseModal" class="case-modal" role="dialog" aria-modal="true" aria-label="Project case study">
+    <div class="case-modal-inner">
+      <button class="case-modal-close" id="caseModalClose" aria-label="Close">&#10005;</button>
+      <div class="case-modal-img-wrap">
+        <img id="caseModalImg" src="" alt="" />
+      </div>
+      <div class="case-modal-body">
+        <div class="case-modal-tags" id="caseModalTags"></div>
+        <h2 id="caseModalTitle"></h2>
+        <p id="caseModalDesc"></p>
+        <div class="case-modal-details">
+          <div class="case-detail"><strong>🔍 Problem</strong><p id="caseModalProblem"></p></div>
+          <div class="case-detail"><strong>⚙️ Solution</strong><p id="caseModalSolution"></p></div>
+          <div class="case-detail"><strong>🏆 Result</strong><p id="caseModalResult"></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ LIGHTBOX ══════════════ -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <!-- ══════════════ BACK TO TOP ══════════════ -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="main.js"></script>
+</body>
+</html>
